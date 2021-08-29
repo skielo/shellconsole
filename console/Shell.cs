@@ -51,12 +51,12 @@ namespace appui
             }
         }
 
-        public void ExecutePWD()
+        private void ExecutePWD()
         {
             this.current.Print();
         }
 
-        public void ExecuteLS()
+        private void ExecuteLS()
         {
             if (this.Arguments.Exists(x => x == "-r"))
                 this.current.ListContent(true);
@@ -64,7 +64,7 @@ namespace appui
                 this.current.ListContent();
         }
 
-        public void ExecuteMKDIR()
+        private void ExecuteMKDIR()
         {
             if (this.Arguments.Count == 1 && !this.current.ChildrenFolders.Exists(x => x.Name == this.Arguments[0]))
             {
@@ -77,7 +77,7 @@ namespace appui
                 Console.WriteLine(Constants.FolderAlreadyExist);
         }
 
-        public void ExecuteCD()
+        private void ExecuteCD()
         {
             if (this.Arguments.Count == 1 && this.current.ChildrenFolders.Exists(x => x.Name == this.Arguments[0]))
                 this.current = this.current.ChildrenFolders.FirstOrDefault(x => x.Name == this.Arguments[0]);
@@ -87,7 +87,7 @@ namespace appui
                 Console.WriteLine(Constants.FolderNotFound);
         }
 
-        public void ExecuteTOUCH()
+        private void ExecuteTOUCH()
         {
             if (this.Arguments.Count == 1
                 )

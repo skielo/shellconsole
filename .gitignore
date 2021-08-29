@@ -52,3 +52,5 @@ Mkfile.old
 dkms.conf
 console/obj/*
 console/bin/*
+test/bin/*
+test/obj/*
