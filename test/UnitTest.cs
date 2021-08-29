@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using appui;
+using appui.Models;
 using appui.Runtime;
 using NUnit.Framework;
 
@@ -131,6 +132,22 @@ namespace test
 
                 Assert.AreEqual($"/root\nfile-1\n/root/folder-1\nfolder1-file-1\nfolder1-file-2\n", sw.ToString());
             }
+        }
+
+        [Test]
+        public void Can_Parse_Command()
+        {
+            var action = Parser.TryParseInstruction<Instruction>("PWD");
+
+            Assert.AreEqual(Instruction.PWD, action);
+        }
+
+        [Test]
+        public void Wrong_Argument()
+        {
+            var action = Parser.TryParseInstruction<Instruction>("NOT_VALID");
+
+            Assert.AreEqual(Instruction.WRONG, action);
         }
     }
 }
