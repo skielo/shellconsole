@@ -50,4 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-appui/obj/*
+console/obj/*
+console/bin/*
