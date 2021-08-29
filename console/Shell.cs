@@ -84,19 +84,15 @@ namespace appui
             else if (this.Arguments.Count == 1 && this.Arguments[0] == ".." && this.current.Parent != null)
                 this.current = this.current.Parent;
             else
-                Console.WriteLine(Constants.FolderNotFound);
+            Console.WriteLine(Constants.FolderNotFound);
         }
 
         private void ExecuteTOUCH()
         {
-            if (this.Arguments.Count == 1
-                )
-            {
-                if (this.Arguments[0].Length <= 100)
-                    this.current.ChildrenFiles.Add(new CustomFile { Name = this.Arguments[0], Parent = this.current });
-                else
-                    Console.WriteLine(Constants.InvalidFileOrFolder);
-            }
+            if (this.Arguments.Count == 1 && this.Arguments[0].Length <= 100)
+                this.current.ChildrenFiles.Add(new CustomFile { Name = this.Arguments[0], Parent = this.current });
+            else
+                Console.WriteLine(Constants.InvalidFileOrFolder);
         }
     }
 }
